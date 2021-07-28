@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'todoapp/style.css' %}">
+    <title>Todo</title>
+</head>
+<body>
+  <div class="container">
+    <ul class="nav justify-content-end todo-nav">
+      <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'createtodo' %}">Create todo</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'currenttodos' %}">Current todos</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'completedtodos' %}">Completed todos</a></li>
+      {% if user.is_authenticated %}
+      <li class="logged">Logged in as <span class="name-user">{{ user.username }}</span></li>
+      <li class="nav-item">
+        <form action="{% url 'logoutuser' %}" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-success" type="submit">Logout</button>
+        </form>
+      </li>
+    {% else %}
+      <li class="nav-item"><a class="btn btn-success sign-up__link" href="{% url 'signupuser' %}">Sign Up</a></li>
+      <li class="nav-item"><a class="btn btn-success login__link" href="{% url 'loginuser' %}">Log In</a></li>
+    {% endif %}
+    </ul>
+    {% block content %}{% endblock %}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

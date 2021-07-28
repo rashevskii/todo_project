@@ -1,0 +1,8 @@
+{% extends 'todoapp/base.html' %}
+{% block content %}
+<h1 class="main-text text-center">Welcome on my todos planner!</h1>
+<p class="about-project">I made this task scheduler on <a href="https://www.udemy.com/course/django-3-full-stack-python/">
+    the Django development course</a>. On the course, the logic of the application was made, and I did the design
+    exclusively myself.</p>
+<a class="btn btn-success start-btn" href="{% url 'createtodo' %}">Let`s start!</a>
+{% endblock %}

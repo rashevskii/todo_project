@@ -1,0 +1,31 @@
+{% extends 'todoapp/base.html' %}
+{% block content %}
+<h1>Current todos</h1>
+{% if todos %}
+    {% for todo in todos %}
+    <div class="card{% if todo.important %} important{% endif %}">
+      <div class="card-body">
+        <h5 class="card-title">
+            <a href="{% url 'viewtodo' todo.id %}">
+                {{ todo }}
+            </a>
+        </h5>
+        <p class="card-text">{% if todo.memo %}{{ todo.memo }}{% endif %}</p>
+        <div class="current-btn__wrapper">
+            <form method="POST" action="{% url 'completetodo' todo.id %}">
+                {% csrf_token %}
+                <button class="btn btn-success" type="submit">Complete</button>
+            </form>
+            <form method="POST" action="{% url 'deletetodo' todo.id %}">
+                {% csrf_token %}
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <p class="empty-list">The task list is still empty</p>
+    <a class="btn btn-success start-btn" href="{% url 'createtodo' %}">Let`s start!</a>
+{% endif %}
+{% endblock %}

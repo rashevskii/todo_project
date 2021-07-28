@@ -1,0 +1,14 @@
+{% extends 'todoapp/base.html' %}
+{% block content %}
+<div class="auth-form__wrapper">
+    <h1>Signup</h1>
+    <p class="error">{{ error }}</p>
+    <form class="auth-form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="auth-btn__wrapper register">
+            <button  class="btn btn-success" type="submit">Sign Up</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

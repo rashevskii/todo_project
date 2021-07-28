@@ -1,0 +1,23 @@
+{% extends 'todoapp/base.html' %}
+{% block content %}
+<h1>Completed</h1>
+{% if todos %}
+    {% for todo in todos %}
+    <div class="card{% if todo.important %} important{% endif %}">
+      <div class="card-body">
+        <h5 class="card-title">
+            <a href="{% url 'viewtodo' todo.id %}">
+                {{ todo }}
+            </a>
+             at
+            <span>--{{ todo.datecomplited|date:'M j Y H:i' }}--</span>
+        </h5>
+        <p class="card-text">{% if todo.memo %}{{ todo.memo }}{% endif %}</p>
+      </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <p class="empty-list">The completed tasks list is still empty</p>
+    <a class="btn btn-success start-btn complete-btn" href="{% url 'currenttodos' %}">Let`s complete!</a>
+{% endif %}
+{% endblock %}

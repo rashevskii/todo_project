@@ -1,0 +1,114 @@
+.todo-nav {
+    padding-top: 20px;
+}
+.sign-up__link {
+    margin-right: 15px;
+}
+.nav-link:hover {
+    color: #0f4593;
+}
+.logged {
+    padding: .5rem 1rem;
+}
+.name-user {
+    font-weight: 700;
+}
+h1 {
+    text-align: center;
+    margin: 50px 0;
+}
+.create-form__wrapper h1 {
+    margin: 0;
+}
+.main-text {
+    margin-top: 80px;
+}
+.about-project {
+    max-width: 450px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+.start-btn {
+    margin: 20px auto 0;
+    display: block;
+    width: 125px;
+}
+.complete-btn {
+    width: 160px;
+}
+.auth-btn__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.auth-btn__wrapper.register {
+    justify-content: center;
+}
+.auth-form__wrapper {
+    max-width: 400px;
+    text-align: center;
+    margin: 50px auto 0;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 11px -4px rgb(0 0 0 / 50%);
+    border-radius: 5px;
+    padding: 20px 30px;
+}
+.auth-form p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.auth-form input {
+    width: 100%;
+}
+.helptext {
+    text-align: left;
+    font-size: 0.7rem;
+}
+.auth-form ul {
+    padding-left: 0;
+    list-style: none;
+    text-align: left;
+    font-size: 0.7rem;
+}
+.card {
+    margin: 20px 0;
+}
+.current-btn__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.create-form__wrapper {
+    max-width: 600px;
+    margin: 50px auto 0;
+    border: 1px solid var(--bs-yellow);
+    border-radius: 5px;
+    padding: 20px 30px;
+    background-color: rgba(255,193,7, 0.1);
+}
+.create-form p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.create-form :nth-child(4) {
+    flex-direction: row;
+    align-items: center;
+}
+.create-form :nth-child(4) label {
+    padding-right: 10px;
+}
+.create-form #id_title,
+.create-form #id_memo {
+    width: 100%;
+}
+.important {
+    background: rgba(220, 53, 69, .2)
+}
+.error {
+    color: var(--bs-red);
+}
+.empty-list {
+    text-align: center;
+    font-size: 1.4rem;
+}
